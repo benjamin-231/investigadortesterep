@@ -3250,7 +3250,7 @@ window.__bootIAA = function(){
         __S[1039] +
         '<textarea class="hypothesis" data-notes="'+c.id+__S[1040]+(inv.notes||'')+'</textarea>' +
       '</div>' +
-      renderTrainingMode(c) +
+      /* modo treinamento corporativo removido da ficha a pedido (26/11/2026) */
       quizHtml +
     '</div>' +
     footerHTML();
@@ -4075,7 +4075,7 @@ window.__bootIAA = function(){
     var re = g.re[lang] || g.re.pt;
     var full = new RegExp('(^|[^\\p{L}\\p{N}])(' + re.source + ')(?![\\p{L}\\p{N}])', 'u' + (re.flags.indexOf('i') !== -1 ? 'i' : ''));
     return CASES.slice().sort(function(a, b){ return a.numero - b.numero; }).filter(function(c){
-      var txt = [c.causaResumo, c.narrativa, c.causaOficial, c.legado, c.papeis ? JSON.stringify(c.papeis) : '']
+      var txt = [c.causaResumo, c.narrativa, c.causaOficial, c.legado]
         .concat(c.fatores || [], c.evidencias || []).join(' \n ');
       return full.test(txt);
     });
